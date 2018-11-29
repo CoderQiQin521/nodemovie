@@ -1,0 +1,24 @@
+extends ../layout.pug
+block content
+    .container
+        .row
+            .col-md-7
+                embed(src=movie.flash, quality="high", width="480", height='400', align='middle', type='application/x-shockwave-flash', play="true", allowfullscreen="true", allowscriptaccess="always", wmode="transparent", id="flashfirebug0", name="flashfirebug0")
+            .col-md-5
+                dl
+                    dd
+                        img(src=movie.poster)
+                    dt 片名
+                    dd= movie.title
+                    dt 导演
+                    dd= movie.doctor
+                    dt 语言
+                    dd= movie.language
+                    dt 国家
+                    dd= movie.country
+                    dt 上映年份
+                    dd= movie.year
+                    dt 简介
+                    dd= movie.summary
+
+    

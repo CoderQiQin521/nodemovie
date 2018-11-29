@@ -1,0 +1,52 @@
+doctype html
+html(lang='zh-CN')
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
+    title 朵朵电影后台管理
+    link(rel="stylesheet", href="/lib/bootstrap/dist/css/bootstrap.min.css")
+    script(src="/lib/jquery/dist/jquery.min.js")
+    script(src="/lib/bootstrap/dist/js/bootstrap.min.js")
+  body
+    nav.navbar.navbar-dark.bg-primary
+      .container
+        a.navbar-brand(href="/admin") 朵朵电影后台管理
+        .navbar-right
+          a.btn.btn-warning(href="/") 返回前台
+    .container
+      form.form-horizontal(role="form" method="POST" action="/admin/movie/new")
+        input(type="hidden" name="movie[_id]" value=movie._id)
+        .form-group.row
+          legend 添加新电影
+        .form-group.row
+          label.col-sm-2.col-form-label 片名
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[title]" value=movie.title required)
+        .form-group.row
+          label.col-sm-2.col-form-label 导演
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[doctor]" value=movie.doctor)
+        .form-group.row
+          label.col-sm-2.col-form-label 语言
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[language]" value=movie.language)
+        .form-group.row
+          label.col-sm-2.col-form-label 国家
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[country]" value=movie.country)
+        .form-group.row
+          label.col-sm-2.col-form-label 预告片地址
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[flash]" value=movie.flash)
+        .form-group.row
+          label.col-sm-2.col-form-label 海报
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[poster]" value=movie.poster required)
+        .form-group.row
+          label.col-sm-2.col-form-label 上映年份
+          .col-sm-10
+            input(type="number" class="form-control" name="movie[year]" value=movie.year)
+        .form-group.row
+          label.col-sm-2.col-form-label 简介
+          .col-sm-10
+            input(type="text" class="form-control" name="movie[summary]" value=movie.summary)
+        button.btn.btn-primary(type="submit") 保存

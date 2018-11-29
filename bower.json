@@ -1,0 +1,22 @@
+{
+  "name": "onenode",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "CoderQiQin521 <coderqiqin@aliyun.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}

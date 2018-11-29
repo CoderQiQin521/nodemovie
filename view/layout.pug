@@ -1,0 +1,74 @@
+doctype
+html(lang='zh-CN')
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui")
+        title #{ pageTitle }
+        link(rel="stylesheet", href="/lib/bootstrap/dist/css/bootstrap.min.css")
+        link(rel='stylesheet', href='/css/style.css')
+        script(src="/lib/jquery/dist/jquery.min.js")
+        script(src="/lib/bootstrap/dist/js/bootstrap.min.js")
+        script(src="/lib/jquery-form/dist/jquery.form.min.js")
+        script(src="/js/user.js")
+    body
+        header.navbar.navbar-expand-lg.navbar-dark.bg-primary
+            .container
+                a.navbar-brand(href="/") 朵朵电影
+                .collapse.navbar-collapse
+                    .nav-right.ml-xs-auto
+                        button.btn.btn-outline-warning.btn-sm.mr-md-2(type="button" data-toggle="modal" data-target="#signRegister") 注册
+                        button.btn.btn-outline-success.btn-sm.mr-md-2(type="button" data-toggle="modal" data-target="#signLogin") 登录
+                        a.btn.btn-outline-dark.btn-sm(href="/admin") 后台管理
+        #signRegister.modal.fade(role="dialog")
+            .modal-dialog
+                .modal-content
+                    form#register.form-horizontal(method="POST" action="/user/register")
+                        .modal-header
+                            h5.modal-title 注册
+                            button.close(data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden) &times;
+                        .modal-body
+                            .form-group.row
+                                label.col-sm-2.col-form-label 用户名
+                                .col-sm-10
+                                    input(type="text" class="form-control ruser" name="user[username]" required)
+                                    .invalid-feedback
+                            .form-group.row
+                                label.col-sm-2.col-form-label 密码
+                                .col-sm-10
+                                    input(type="text" class="form-control" name="user[password]" required)
+                        .modal-footer
+                            button.btn.btn-secondary(type="button" data-dismiss="modal") 关闭
+                            button.btn.btn-primary(type="submit") 提交
+        #signLogin.modal.fade(role="dialog")
+            .modal-dialog
+                .modal-content
+                    form#login.form-horizontal(method="POST" action="/user/login")
+                        .modal-header
+                            h5.modal-title 登录
+                            button.close(data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden) &times;
+                        .modal-body
+                            .form-group.row
+                                label.col-sm-2.col-form-label 用户名
+                                .col-sm-10
+                                    input(type="text" class="form-control ruser" name="user[username]" required)
+                                    .invalid-feedback
+                            .form-group.row
+                                label.col-sm-2.col-form-label 密码
+                                .col-sm-10
+                                    input(type="text" class="form-control" name="user[password]" required)
+                        .modal-footer
+                            button.btn.btn-secondary(type="button" data-dismiss="modal") 关闭
+                            button.btn.btn-success(type="submit") 确定
+
+        .jumbotron
+            .container
+                h1.display-4 Hello, Node!
+                //- p.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                p.lead This is a simple for Nodejs express mongoose pug bower.
+        block content
+        blockquote.blockquote.text-center.mt-lg
+            p.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            footer.blockquote-footer Someone famous in 
+                cite(title="Source") Source Title

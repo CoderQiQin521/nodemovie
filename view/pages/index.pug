@@ -1,0 +1,12 @@
+extends ../layout.pug
+block content
+    .container
+      .row
+        each item in movies
+          .col-md-3.col-6.mb-10
+            .card
+              img.card-img-top(src=item.poster alt=item.title)
+              .card-body
+                p.card-text= item.title
+                small.text-muted 上传于: #{moment(item.meta.createAt).startOf('hour').fromNow()}
+                a.btn.btn-primary.float-right(href="/movie/"+item._id) 详情
