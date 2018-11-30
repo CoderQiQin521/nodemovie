@@ -34,7 +34,7 @@ module.exports = function (app) {
   })
 
   // add movie
-  app.get('/admin/add', (req, res) => {
+  app.get('/admin/movie/new', (req, res) => {
     var id = req.query.id
     console.log(id);
     if (id) {
@@ -163,7 +163,6 @@ module.exports = function (app) {
     User.find({ username: name }, (err, user) => {
       if (err) {
         console.error(err);
-
       }
 
       console.log(user);
@@ -175,14 +174,10 @@ module.exports = function (app) {
           msg: '用户不存在'
         })
       } else {
-        res.send({
-          errno: 0,
-          msg: '正在登陆'
-        })
+        // 那到前台提交密码,进行加密比对
+        // User.bd()
       }
-
     })
-
   })
 
   app.get('/user/list', (req, res) => {
@@ -200,12 +195,13 @@ module.exports = function (app) {
 
   app.delete('/user/del', (req, res) => {
     var id = req.query.id
-
+    console.log(id);
+    
     User.findById(id, (err, user) => {
       if (err) {
         console.error(err);
       }
-      console.log(user);
+
       if (user) {
         User.remove({ _id: id }, (err, user) => {
           if (err) {

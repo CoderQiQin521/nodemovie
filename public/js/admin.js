@@ -27,15 +27,14 @@ $(function() {
     id = target.data('id'),
     tr = $('.item-id-' + id)
 
-    console.log(id);
     $('#userModal').modal('show')
 
-    $('.yes').click(function() {
+    $('#userModal .yes').click(function() {
       $('#userModal').modal('hide')
 
       $.ajax({
         type: 'DELETE',
-        url: '/user?id=' + id
+        url: '/user/del?id=' + id
       }).done((res) => {
         if (res.errno === 0 && tr.length > 0) {
           tr.remove()

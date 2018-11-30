@@ -13,7 +13,7 @@ html(lang='zh-CN')
                 .navbar-right
                     a.btn.btn-warning(href="/") 返回前台
     .container
-      a.btn.btn-success(href="/admin/add") 添加电影
+      a.btn.btn-success(href="/admin/movie/new") 添加电影
       a.btn.btn-success(href="/user/list") 用戶列表
       .table-responsive
         table.table.table-hover.table-dark
@@ -37,7 +37,7 @@ html(lang='zh-CN')
                 td= moment(item.meta.updateAt).format('YYYY/MM/DD H:mm:ss')
                 td
                   .btn-group.btn-group-sm(role="group")
-                    a.btn.btn-warning(href="/admin/add?id=" + item._id) 修改
+                    a.btn.btn-warning(href="/admin/movie/new?id=" + item._id) 修改
                     button.btn.btn-danger.del(type="button" data-id=item._id) 删除
     #myModal.modal.fade
       .modal-dialog
